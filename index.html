@@ -45,8 +45,14 @@
         <div class="row">
 
             <div class="col-md-7">
-                <div class="img-overlay">
-                    <img class="img-responsive" src="img/commercial/commercial.jpg" alt="Metal Building">
+                <input type="radio" name="office" id="residential" data-bind="checked: $root.residentialSelected, checkedValue: true"> Residential
+                <input type="radio" name="office" id="commercial" data-bind="checked: $root.residentialSelected, checkedValue: false"> Commercial
+                <div class="img-overlay" data-bind="with:currentBuilding, visible: $root.residentialSelected()">
+                        <img id="housePic" class="img-responsive" src="img/residential/house.jpg" alt="Residential Building">
+                        <img id="houseRoof" class="img-responsive roof-overlay" src="" data-bind="attr: {src: houseSrc}">
+                </div>
+                <div class="img-overlay" data-bind="visible:!$root.residentialSelected()">
+                    <img class="img-responsive" src="img/commercial/commercial.png" alt="Metal Building">
                     <img id="roofPic" class="img-responsive roof-overlay" src="">
                     <img id="wallPic" class="img-responsive roof-overlay" src="">
                     <img id="trimPic" class="img-responsive roof-overlay" src="">
@@ -54,9 +60,14 @@
             </div>
 
             <div class="col-md-5">
-                <input type="radio" name="roofwall" id="setRoof""> Roof Color
-                <input type="radio" name ="roofwall" id="setWall"> Wall Color
-                <input type="radio" name ="roofwall" id="setTrim"> Trim Color
+                <div>
+                    <input type="radio" name="roofwall" id="setRoof" data-bind="checked: $root.roofSelected, checkedValue: true">
+                        <label for="setRoof">Roof Color</label>
+                    <input type="radio" name ="roofwall" id="setWall" data-bind="visible: !$root.residentialSelected()">
+                        <label for="setWall" data-bind="visible: !$root.residentialSelected()">Wall Color</label>
+                    <input type="radio" name ="roofwall" id="setTrim" data-bind="visible: !$root.residentialSelected()">
+                        <label for="setTrim" data-bind="visible: !$root.residentialSelected()">Trim Color</label>
+                </div>
                 <h3>Color Chart</h3>
                 <div data-bind="foreach: buildingList">
                     <img data-bind="attr: {src: buttonSrc}, click: $parent.setBuilding" class="img-responsive color-button" alt="Custom Color Chart">
@@ -91,7 +102,7 @@
 
     <!-- KO and App JavaScript -->
     <script src="js/knockout-3.2.0.js"></script>
-    <script src="js/app.min.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 
