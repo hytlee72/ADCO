@@ -72,6 +72,12 @@
                 <div data-bind="foreach: buildingList">
                     <img data-bind="attr: {src: buttonSrc}, click: $parent.setBuilding" class="img-responsive color-button" alt="Custom Color Chart">
                 </div>
+                <div data-bind="foreach: buildingList">
+                    <img class="img-hidden" src="" alt="Custom Color" data-bind="attr: {src: houseSrc}">
+                    <img class="img-hidden" src="" alt="Custom Color" data-bind="attr: {src: officeRoofSrc}">
+                    <img class="img-hidden" src="" alt="Custom Color" data-bind="attr: {src: officeWallSrc}">
+                    <img class="img-hidden" src="" alt="Custom Color" data-bind="attr: {src: officeTrimSrc}">
+                </div>
             </div>
 
         </div>
