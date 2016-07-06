@@ -125,7 +125,17 @@ var initialBuildings = [
 			trimSrc: 'img/commercial/trim/trim_white.png',
 			houseSrc: 'img/residential/roof_white.png',
 			buttonSrc: 'img/buttons/white.jpg'
+		},
+
+		{
+			roofSrc: 'img/commercial/roofs/roof_galvalume.png',
+			wallSrc: 'img/commercial/walls/wall_galvalume.png',
+			trimSrc: 'img/commercial/trim/trim_galvalume.png',
+			houseSrc: 'img/residential/roof_galvalume.png',
+			buttonSrc: 'img/buttons/galvalume.jpg'
 		}
+
+
 	];
 
 var Building = function(data) {
